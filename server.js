@@ -7,7 +7,7 @@
  * Name: Renato Cordova
  * Student ID: 153325238
  * Date: 07/07/2024
- *  Published URL:
+ *  Published URL: https://webb322.vercel.app/
  *
  ********************************************************************************/
 const legoData = require("./modules/legoSets");
