@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <title>Lego Collection</title>
+  </head>
+  <body>
+    <%- include('partials/navbar') %>
+
+    <div class="container mx-auto my-5">
+      <div
+        class="hero min-h-screen"
+        style="background-image: url(./images/944250.jpg)"
+      >
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center text-neutral-content">
+          <div class="max-w-md">
+            <h1 class="mb-5 text-5xl font-bold">
+              Discover the World of LEGO Sets
+            </h1>
+            <p class="mb-5">
+              Welcome to our LEGO universe, where the only limit is your
+              imagination! Dive into our vast collection of LEGO sets that cater
+              to builders of all ages and skill levels.
+            </p>
+
+            <a class="btn btn-primary" href="/lego/sets">Discover our Sets!</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4 place-items-center my-10">
+        <div class="card card-compact w-96 bg-base-100 shadow-xl">
+          <figure>
+            <img
+              src="https://cdn.rebrickable.com/media/thumbs/sets/10214-1/14563.jpg/1000x800p.jpg?1718616252.9490862"
+              alt="Tower Bridge"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Tower Bridge</h2>
+            <p>
+              This set was unveiled by the designer, Jamie Berard, in person at
+              Brickfair Virginia in August 2010. Tower Bridge is amongst the
+              landmarks depicted in the 21034-1 London Architecture Skyline set.
+            </p>
+            <div class="card-actions justify-end">
+              <a class="btn btn-primary" href="/lego/sets/10214-1">Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="card card-compact w-96 bg-base-100 shadow-xl">
+          <figure>
+            <img
+              src="https://cdn.rebrickable.com/media/thumbs/sets/10217-1/48433.jpg/1000x800p.jpg?1718790189.1973932"
+              alt="Diagon Alley"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Diagon Alley</h2>
+            <p>
+              Depicts the following locations: * Borgin and Burke's * Gringott's
+              Bank * Ollivander's Wand Shop
+            </p>
+            <div class="card-actions justify-end">
+              <a class="btn btn-primary" href="/lego/sets/10217-1">Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="card card-compact w-96 bg-base-100 shadow-xl">
+          <figure>
+            <img
+              src="https://cdn.rebrickable.com/media/thumbs/sets/10127-1/1885.jpg/1000x800p.jpg?1718828250.473967"
+              alt="NHL Action Set with Stickers"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">NHL Action Set with Stickers</h2>
+            <p>
+              This set includes three alternative face masks and six different
+              color choices for shoulder pads.
+            </p>
+            <div class="card-actions justify-end">
+              <a class="btn btn-primary" href="/lego/sets/10127-1">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

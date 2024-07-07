@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <title>About</title>
+  </head>
+  <body>
+    <%- include('partials/navbar', {page: ''}) %>
+
+    <div class="container mx-auto my-5">
+      <div class="hero min-h-screen bg-base-200">
+        <div class="hero-content text-center">
+          <div class="max-w-md">
+            <h1 class="text-5xl font-bold"><%= set.name %></h1>
+            <p class="py-6">
+              Below, you will find detailed information about the set: <%=
+              set.set_num %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 grid-rows-1 gap-10 my-10">
+        <div class="avatar col-span-1 justify-self-end">
+          <div class="w-44 rounded">
+            <img src="<%= set.img_url %>" />
+          </div>
+        </div>
+        <div class="col-span-1">
+          <h1 class="text-2xl font-bold"><%= set.name %></h1>
+          <p>
+            Year: <%= set.year %>
+            <br />
+            Theme: <%= set.theme %>
+            <br />
+            Number of parts: <%= set.num_parts %>
+            <br />
+            Quote by:
+            <span class="author"></span>
+            <br />
+            "<span class="content"></span>"
+          </p>
+          <a
+            class="btn btn-primary mt-3"
+            href="#"
+            onclick="history.back(); return false"
+            >Back</a
+          >
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("https://api.quotable.io/random")
+          .then((response) => response.json())
+          .then((data) => {
+            document.querySelector(".author").textContent = data.author;
+            document.querySelector(".content").textContent = data.content;
+          });
+      });
+    </script>
+  </body>
+</html>
