@@ -48,7 +48,11 @@ const getSetsByTheme = (theme) => {
       const filterredSets = sets.filter((set) =>
         set.theme.toLowerCase().includes(theme.toLowerCase())
       );
-      resolve(filterredSets);
+      if (filterredSets.length === 0) {
+        throw "Unable to find sets by theme";
+      } else {
+        resolve(filterredSets);
+      }
     } catch (error) {
       reject(error, "Unable to find sets by theme");
     }
