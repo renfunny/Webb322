@@ -9,13 +9,13 @@
   <body>
     <%- include('partials/navbar') %>
 
-    <div class="container mx-auto my-5">
+    <div class="container mx-auto">
       <div
-        class="hero min-h-screen"
+        class="hero rounded hero-lg bg-base-200 bg-cover bg-center"
         style="background-image: url(/images/944250.jpg)"
       >
         <div class="hero-overlay bg-opacity-60"></div>
-        <div class="hero-content text-center text-neutral-content">
+        <div class="hero-content text-center text-neutral-content m-6">
           <div class="max-w-md">
             <h1 class="mb-5 text-5xl font-bold">
               Discover the World of LEGO Sets
@@ -31,17 +31,16 @@
         </div>
       </div>
 
-      <div
-        class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 place-items-top my-10"
-      >
-        <div class="card card-compact w-96 bg-base-100 shadow-xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-8">
+        <div class="card bg-base-100 shadow-xl rounded overflow-hidden">
           <figure>
             <img
               src="https://cdn.rebrickable.com/media/thumbs/sets/10214-1/14563.jpg/1000x800p.jpg?1718616252.9490862"
               alt="Tower Bridge"
+              class="w-full"
             />
           </figure>
-          <div class="card-body">
+          <div class="card-body flex flex-col justify-between">
             <h2 class="card-title">Tower Bridge</h2>
             <p>
               This set was unveiled by the designer, Jamie Berard, in person at
@@ -53,14 +52,15 @@
             </div>
           </div>
         </div>
-        <div class="card card-compact w-96 bg-base-100 shadow-xl">
+        <div class="card bg-base-100 shadow-xl rounded overflow-hidden">
           <figure>
             <img
               src="https://cdn.rebrickable.com/media/thumbs/sets/10217-1/48433.jpg/1000x800p.jpg?1718790189.1973932"
               alt="Diagon Alley"
+              class="w-full"
             />
           </figure>
-          <div class="card-body">
+          <div class="card-body flex flex-col justify-between">
             <h2 class="card-title">Diagon Alley</h2>
             <p>
               Depicts the following locations: * Borgin and Burke's * Gringott's
@@ -71,14 +71,15 @@
             </div>
           </div>
         </div>
-        <div class="card card-compact w-96 bg-base-100 shadow-xl">
+        <div class="card bg-base-100 shadow-xl rounded overflow-hidden">
           <figure>
             <img
               src="https://cdn.rebrickable.com/media/thumbs/sets/10127-1/1885.jpg/1000x800p.jpg?1718828250.473967"
               alt="NHL Action Set with Stickers"
+              class="w-full"
             />
           </figure>
-          <div class="card-body">
+          <div class="card-body flex flex-col justify-between">
             <h2 class="card-title">NHL Action Set with Stickers</h2>
             <p>
               This set includes three alternative face masks and six different

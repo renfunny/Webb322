@@ -10,8 +10,9 @@
     <%- include('partials/navbar', {page: '/lego/sets'}) %>
 
     <div class="container mx-auto my-5">
-    <div class="hero min-h-screen bg-base-200">
-      <div class="hero-content text-center">
+    <div class="hero rounded hero-lg bg-base-200 bg-cover bg-center" style="background-image: url(/images/944250.jpg)">
+      <div class="hero-overlay bg-opacity-60"></div>
+      <div class="hero-content text-center m-6">
         <div class="max-w-md">
           <h1 class="text-5xl font-bold">Collection</h1>
           <p class="py-6">Details about the Collection</p>
@@ -19,32 +20,55 @@
       </div>
     </div>
 
-    <div class="overflow-x-auto ">
-        <table class="table">
+    <div class="overflow-x-auto mt-6">
+        <table class="table w-full overflow-hidden">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Theme</th>
+              <th>Year</th>
+              <th>Number of Parts</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
     <% sets.forEach(set => { %>
     <tr>
+      <th>
       <div class="avatar flex justify-center mt-3">
         <div class="w-24 rounded">
           <img src="<%= set.img_url %>" />
         </div>
       </div>
-      <div class="flex justify-center">
-      <h1 class="text-2xl font-bold"><%= set.name %></h1>
+      </th>
+      <td>
+      <div class="flex">
+      <h1 class="font-bold"><%= set.name %></h1>
       </div>
-      <div class="flex justify-center">
-      <p>Theme: <%= set.theme %></p>
+      </td>
+      <td>
+      <div class="flex">
+      <p><%= set.theme %></p>
       </div>
-        <div class="flex justify-center">
-      <p>Year: <%= set.year %></p>
+      </td>
+      <td>
+        <div class="flex">
+      <p><%= set.year %></p>
         </div>
-        <div class="flex justify-center">
-      <p>Num of parts: <%= set.num_parts %></p>
-            </div>
-      <div class="card-actions felx justify-center">
+      </td>
+      <td>
+        <div class="flex">
+      <p><%= set.num_parts %></p>
+        </div>
+      </td>
+      <td>
+      <div class="card-actions">
         <a class="btn btn-primary" href="/lego/sets/<%= set.set_num %>"
           >Details</a
         >
       </div>
+      </td>
     </tr>
     <% }) %>
     </table>

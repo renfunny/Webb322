@@ -10,8 +10,12 @@
     <%- include('partials/navbar', {page: '/about'}) %>
 
     <div class="container mx-auto my-5">
-      <div class="hero min-h-screen bg-base-200">
-        <div class="hero-content text-center">
+      <div
+        class="hero rounded hero-lg bg-base-200 bg-cover bg-center"
+        style="background-image: url(/images/944250.jpg)"
+      >
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center m-6">
           <div class="max-w-md">
             <h1 class="text-5xl font-bold">About</h1>
             <p class="py-6">Details about the Developer</p>
@@ -22,9 +26,7 @@
       <div class="grid grid-cols-2 grid-rows-1 gap-10 my-10">
         <div class="avatar col-span-1 justify-self-end">
           <div class="w-44 rounded">
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-            />
+            <img src="./images/legoProfile.jpg" />
           </div>
         </div>
         <div class="col-span-1">

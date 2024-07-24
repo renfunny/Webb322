@@ -10,8 +10,12 @@
     <%- include('partials/navbar', {page: ''}) %>
 
     <div class="container mx-auto my-5">
-      <div class="hero min-h-screen bg-base-200">
-        <div class="hero-content text-center">
+      <div
+        class="hero rounded hero-lg bg-base-200 bg-cover bg-center"
+        style="background-image: url(/images/944250.jpg)"
+      >
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center m-6">
           <div class="max-w-md">
             <h1 class="text-5xl font-bold"><%= set.name %></h1>
             <p class="py-6">
