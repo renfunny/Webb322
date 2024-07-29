@@ -37,7 +37,7 @@
           <p>
             Year: <%= set.year %>
             <br />
-            Theme: <%= set.theme %>
+            Theme: <%= set.Theme.name %>
             <br />
             Number of parts: <%= set.num_parts %>
             <br />
@@ -46,6 +46,9 @@
             <br />
             "<span class="content"></span>"
           </p>
+          <a class="btn btn-primary" href="/lego/editSet/<%= set.set_num %>"
+            >Edit</a
+          >
           <a
             class="btn btn-primary mt-3"
             href="#"
