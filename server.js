@@ -10,12 +10,36 @@
  *  Published URL: https://webb322-6ftz0a4fv-renfunnys-projects.vercel.app/
  *
  ********************************************************************************/
+const clientSessions = require("client-sessions");
+const authData = require("./modules/auth-service");
 const legoData = require("./modules/legoSets");
 const express = require("express");
 const app = express();
 const path = require("path");
 
 app.use(express.urlencoded({ extended: true }));
+
+app.use(
+  clientSessions({
+    cookieName: "session",
+    secret: "web322_assignment5_anvjcdnwieudjasanc",
+    duration: 2 * 60 * 1000,
+    activeDuration: 1000 * 60,
+  })
+);
+
+app.use((req, res, next) => {
+  res.locals.session = req.session;
+  next();
+});
+
+function ensureLogin(req, res, next) {
+  if (!req.session.user) {
+    res.redirect("/login");
+  } else {
+    next();
+  }
+}
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -24,11 +48,74 @@ app.set("view engine", "ejs");
 
 const HTTP_PORT = process.env.PORT || 8000;
 
-legoData.initialize().then(
-  app.listen(HTTP_PORT, () => {
-    console.log(`Server listening on: ${HTTP_PORT}`);
-  })
-);
+legoData
+  .initialize()
+  .then(authData.initialize)
+  .then(
+    app.listen(HTTP_PORT, () => {
+      console.log(`Server listening on: ${HTTP_PORT}`);
+    })
+  )
+  .catch((err) => {
+    console.log(err, "Error initializing services");
+  });
+
+app.get("/login", (req, res) => {
+  res.render("login", { page: "/login", errorMessage: "" });
+});
+
+app.get("/register", (req, res) => {
+  res.render("register", {
+    page: "/register",
+    errorMessage: "",
+    successMessage: "",
+  });
+});
+
+app.post("/register", (req, res) => {
+  authData
+    .registerUser(req.body)
+    .then(() => {
+      res.render("register", {
+        successMessage: "User created",
+        errorMessage: "",
+      });
+    })
+    .catch((err) => {
+      res.render("register", {
+        errorMessage: err,
+        userName: req.body.userName,
+        successMessage: "",
+      });
+    });
+});
+
+app.post("/login", (req, res) => {
+  req.body.userAgent = req.get("User-Agent");
+
+  authData
+    .checkUser(req.body)
+    .then((user) => {
+      req.session.user = {
+        userName: user.userName,
+        email: user.email,
+        loginHistory: user.loginHistory,
+      };
+      res.redirect("/lego/sets");
+    })
+    .catch((err) => {
+      res.render("login", { errorMessage: err, userName: req.body.userName });
+    });
+});
+
+app.get("/logout", (req, res) => {
+  req.session.reset();
+  res.redirect("/");
+});
+
+app.get("/userHistory", ensureLogin, (req, res) => {
+  res.render("userHistory", { page: "/userHistory", user: req.session.user });
+});
 
 app.get("/", (req, res) => {
   res.render("home", { page: "/" });
@@ -84,7 +171,7 @@ app.get("/lego/addSet", (req, res) => {
     });
 });
 
-app.post("/lego/addSet", (req, res) => {
+app.post("/lego/addSet", ensureLogin, (req, res) => {
   legoData
     .addSet(req.body)
     .then(() => {
@@ -95,7 +182,7 @@ app.post("/lego/addSet", (req, res) => {
     });
 });
 
-app.get("/lego/editSet/:num", (req, res) => {
+app.get("/lego/editSet/:num", ensureLogin, (req, res) => {
   const set_num = req.params.num;
   legoData
     .getSetByNum(set_num)
@@ -117,7 +204,7 @@ app.get("/lego/editSet/:num", (req, res) => {
     });
 });
 
-app.post("/lego/editSet", (req, res) => {
+app.post("/lego/editSet", ensureLogin, (req, res) => {
   const set_num = req.body.set_num;
   const setData = req.body;
   legoData
@@ -130,7 +217,7 @@ app.post("/lego/editSet", (req, res) => {
     });
 });
 
-app.get("/lego/deleteSet/:num", (req, res) => {
+app.get("/lego/deleteSet/:num", ensureLogin, (req, res) => {
   const set_num = req.params.num;
   legoData
     .deleteSet(set_num)
@@ -147,3 +234,10 @@ app.use((req, res, next) => {
     message: "I'm sorry, we're unable to find what you're looking for",
   });
 });
+
+/*
+MongoDB
+Username: ren99cordova
+Password: ZJE7oVTwaH49MmXt
+mongodb+srv://ren99cordova:ZJE7oVTwaH49MmXt@cluster0.tcqiaqx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+*/
