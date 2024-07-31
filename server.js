@@ -1,12 +1,12 @@
 /*********************************************************************************
- * WEB322 – Assignment 5
+ * WEB322 – Assignment 6
  * I declare that this assignment is my own work in accordance with Seneca Academic Policy.
  * No part of this assignment has been copied manually or electronically from any other source
  * (including web sites) or distributed to other students.
  *
  * Name: Renato Cordova
  * Student ID: 153325238
- * Date: 07/19/2024
+ * Date: 07/31/2024
  *  Published URL: https://webb322-6ftz0a4fv-renfunnys-projects.vercel.app/
  *
  ********************************************************************************/
@@ -234,10 +234,3 @@ app.use((req, res, next) => {
     message: "I'm sorry, we're unable to find what you're looking for",
   });
 });
-
-/*
-MongoDB
-Username: ren99cordova
-Password: ZJE7oVTwaH49MmXt
-mongodb+srv://ren99cordova:ZJE7oVTwaH49MmXt@cluster0.tcqiaqx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-*/
