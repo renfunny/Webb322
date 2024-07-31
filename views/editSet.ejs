@@ -25,23 +25,23 @@
 
       <div>
         <form class="editSetForm" action="/lego/editSet" method="POST" >
-          <div class="form-control">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required value="<%= set.name %>" />
+          <div class="form-control mt-3">
+            <label  for="name">Name</label>
+            <input class="input input-bordered input-primary w-full max-w" type="text" id="name" name="name" required value="<%= set.name %>" />
           </div>
-          <div class="form-control">
+          <div class="form-control mt-3">
             <label for="year">Year</label>
-            <input type="number" id="year" name="year" required value="<%= set.year %>" />
+            <input class="input input-bordered input-primary w-full max-w" type="number" id="year" name="year" required value="<%= set.year %>" />
           </div>
-          <div class="form-control">
+          <div class="form-control mt-3">
             <label for="num_parts">Number of Parts</label>
-            <input type="number" id="num_parts" name="num_parts" required value="<%= set.num_parts %>" />
+            <input class="input input-bordered input-primary w-full max-w" type="number" id="num_parts" name="num_parts" required value="<%= set.num_parts %>" />
           </div>
-          <div class="form-control">
+          <div class="form-control mt-3">
             <label for="img_url">Image URL</label>
-            <input type="url" id="img_url" name="img_url" required value="<%= set.img_url %>"/>
+            <input class="input input-bordered input-primary w-full max-w" type="url" id="img_url" name="img_url" required value="<%= set.img_url %>"/>
           </div>
-          <div class="form-control">
+          <div class="form-control mt-3">
             <label for="theme_id">Theme</label>
             <select id="theme_id" name="theme_id" required>
                 <% themes.forEach(theme => { %>
@@ -51,13 +51,13 @@
                     <% }) %>
             </select>
           </div>
-          <div class="form-control">
+          <div class="form-control mt-3">
             <label for="set_num">Set Number</label>
-            <input type="text" id="set_num" name="set_num" value="<%= set.set_num %>" class="cursor-not-allowed"
+            <input type="text" id="set_num" name="set_num" value="<%= set.set_num %>" class="cursor-not-allowed input input-bordered input-primary w-full max-w"
             readonly />
           </div>
 
-          <button class="btn btn-primary" type="submit" >Update Set</button>
+          <button class="btn btn-primary mt-3" type="submit" >Update Set</button>
         </form>
         <a class="btn btn-error mt-3" href="/lego/deleteSet/<%= set.set_num %>">Delete Set</a>
       </div>
