@@ -8,7 +8,7 @@
  * Student ID: 153325238
  * Date: 07/31/2024
  *  Published URL: web322-r271bxhx2-renfunnys-projects.vercel.app
- *
+ **
  ********************************************************************************/
 const clientSessions = require("client-sessions");
 const authData = require("./modules/auth-service");
