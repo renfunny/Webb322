@@ -20,5 +20,6 @@
   "env": {
     "PORT": "8000",
     "OTHER_ENV_VAR": "value"
-  }
+  },
+  "installCommand": "npm install"
 }
