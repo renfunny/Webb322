@@ -7,7 +7,7 @@
  * Name: Renato Cordova
  * Student ID: 153325238
  * Date: 07/31/2024
- *  Published URL: https://webb322-6ftz0a4fv-renfunnys-projects.vercel.app/
+ *  Published URL: web322-r271bxhx2-renfunnys-projects.vercel.app
  *
  ********************************************************************************/
 const clientSessions = require("client-sessions");
